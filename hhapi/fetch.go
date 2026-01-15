@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/schollz/progressbar/v3"
 )
 
 func getUrls() []string {
@@ -31,6 +33,7 @@ func GetVacancies() (entity.VacancyResponse, error) {
 	var allVacancies entity.VacancyResponse
 
 	urls := getUrls()
+	bar := progressbar.Default(int64(len(urls)), "Getting data")
 
 	for _, url := range urls {
 		// Rate limit
@@ -58,6 +61,7 @@ func GetVacancies() (entity.VacancyResponse, error) {
 		}
 
 		allVacancies.Items = append(allVacancies.Items, vacancies.Items...)
+		bar.Add(1)
 	}
 
 	return allVacancies, nil

@@ -24,6 +24,7 @@ HeadHunterParser/
 
 1) git clone https://github.com/DMITRII1548/Head-Hunter-Vacancy-Parser.git
 2) cd Head-Hunter-Vacancy-Parser
-3) mkdir storage
-4) Run project - go run main.go 
-5) Create a build - go build -o HeadHunterParser.exe main.go
+3) go mod download
+4) mkdir storage
+5) Run project - go run main.go 
+6) Create a build - go build -o HeadHunterParser.exe main.go

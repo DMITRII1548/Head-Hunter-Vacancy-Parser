@@ -6,6 +6,8 @@ import (
 	"hhparser/entity"
 	"hhparser/helper"
 	"os"
+
+	"github.com/schollz/progressbar/v3"
 )
 
 func SaveVacanciesToCSV(filename string, vacancies []entity.Vacancy) error {
@@ -38,6 +40,8 @@ func SaveVacanciesToCSV(filename string, vacancies []entity.Vacancy) error {
 
 	writer.Write(csvHeaders)
 
+	bar := progressbar.Default(int64(len(vacancies)), "Writing results")
+
 	for _, vacancy := range vacancies {
 		record := []string{
 			vacancy.ID,
@@ -55,6 +59,7 @@ func SaveVacanciesToCSV(filename string, vacancies []entity.Vacancy) error {
 		}
 
 		writer.Write(record)
+		bar.Add(1)
 	}
 
 	fmt.Println("CVS created successful: ", filePath)
