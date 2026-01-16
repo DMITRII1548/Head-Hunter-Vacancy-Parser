@@ -10,7 +10,7 @@ func StringMinSalary(vacancy entity.Vacancy) string {
 		return ""
 	}
 
-	return fmt.Sprint(vacancy.Salary.Min)
+	return fmt.Sprint(*vacancy.Salary.Min)
 }
 
 func StringMaxSalary(vacancy entity.Vacancy) string {
@@ -18,7 +18,7 @@ func StringMaxSalary(vacancy entity.Vacancy) string {
 		return ""
 	}
 
-	return fmt.Sprint(vacancy.Salary.Max)
+	return fmt.Sprint(*vacancy.Salary.Max)
 }
 
 func StringRequirementInformation(vacancy entity.Vacancy) string {
