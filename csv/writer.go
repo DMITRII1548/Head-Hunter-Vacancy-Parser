@@ -36,6 +36,7 @@ func SaveVacanciesToCSV(filename string, vacancies []entity.Vacancy) error {
 		"address",
 		"latitude",
 		"longitude",
+		"experience",
 	}
 
 	writer.Write(csvHeaders)
@@ -56,6 +57,7 @@ func SaveVacanciesToCSV(filename string, vacancies []entity.Vacancy) error {
 			helper.StringFullAddress(vacancy),
 			helper.StringLatitude(vacancy),
 			helper.StringLongitude(vacancy),
+			vacancy.Experience.Value,
 		}
 
 		writer.Write(record)
