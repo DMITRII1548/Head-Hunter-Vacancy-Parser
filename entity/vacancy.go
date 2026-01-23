@@ -28,4 +28,7 @@ type Vacancy struct {
 	Schedule struct {
 		Value string `json:"id"`
 	} `json:"schedule"`
+	Format []struct {
+		Value string `json:"id"`
+	} `json:"work_format"`
 }

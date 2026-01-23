@@ -39,6 +39,7 @@ func SaveVacanciesToCSV(filename string, vacancies []entity.Vacancy) error {
 		"experience",
 		"employment_form",
 		"schedule",
+		"format",
 	}
 
 	writer.Write(csvHeaders)
@@ -62,6 +63,7 @@ func SaveVacanciesToCSV(filename string, vacancies []entity.Vacancy) error {
 			vacancy.Experience.Value,
 			vacancy.EmploymentForm.Value,
 			vacancy.Schedule.Value,
+			helper.StringFormat(vacancy),
 		}
 
 		writer.Write(record)

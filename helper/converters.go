@@ -3,6 +3,7 @@ package helper
 import (
 	"fmt"
 	"hhparser/entity"
+	"strings"
 )
 
 func StringMinSalary(vacancy entity.Vacancy) string {
@@ -75,4 +76,22 @@ func StringLongitude(vacancy entity.Vacancy) string {
 	}
 
 	return fmt.Sprint(*vacancy.Address.Longitude)
+}
+
+func StringFormat(vacancy entity.Vacancy) string {
+	formats := vacancy.Format
+
+	if len(formats) == 0 {
+		return ""
+	}
+
+	formattedFormat := make([]string, 0, len(formats))
+
+	for _, format := range formats {
+		if format.Value != "" {
+			formattedFormat = append(formattedFormat, format.Value)
+		}
+	}
+
+	return strings.Join(formattedFormat, "|")
 }
