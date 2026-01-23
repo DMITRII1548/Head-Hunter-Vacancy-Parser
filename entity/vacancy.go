@@ -13,13 +13,19 @@ type Vacancy struct {
 		Responsibility *string `json:"responsibility"`
 	} `json:"snippet"`
 	Address *struct {
-		City   *string `json:"city"`
-		Street *string `json:"street"`
-		FullAddress *string `json:"raw"`
-		Latitude *float64 `json:"lat"`
-		Longitude *float64 `json:"lng"`
+		City        *string  `json:"city"`
+		Street      *string  `json:"street"`
+		FullAddress *string  `json:"raw"`
+		Latitude    *float64 `json:"lat"`
+		Longitude   *float64 `json:"lng"`
 	} `json:"address"`
 	Experience struct {
 		Value string `json:"id"`
 	} `json:"experience"`
+	EmploymentForm struct {
+		Value string `json:"id"`
+	} `json:"employment_form"`
+	Schedule struct {
+		Value string `json:"id"`
+	} `json:"schedule"`
 }
