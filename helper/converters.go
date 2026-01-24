@@ -95,3 +95,21 @@ func StringFormat(vacancy entity.Vacancy) string {
 
 	return strings.Join(formattedFormat, "|")
 }
+
+func StringProfession(vacancy entity.Vacancy) string {
+	professions := vacancy.Profession
+
+	if len(professions) == 0 {
+		return ""
+	}
+
+	formattedFormat := make([]string, 0, len(professions))
+
+	for _, format := range professions {
+		if format.Value != "" {
+			formattedFormat = append(formattedFormat, format.Value)
+		}
+	}
+
+	return strings.Join(formattedFormat, "|")
+}

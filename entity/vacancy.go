@@ -31,4 +31,7 @@ type Vacancy struct {
 	Format []struct {
 		Value string `json:"id"`
 	} `json:"work_format"`
+	Profession []struct {
+		Value string `json:"name"`
+	} `json:"professional_roles"`
 }
