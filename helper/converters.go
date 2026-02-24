@@ -113,3 +113,11 @@ func StringProfession(vacancy entity.Vacancy) string {
 
 	return strings.Join(formattedFormat, "|")
 }
+
+func StringLogoUrl(vacancy entity.Vacancy) string {
+	if vacancy.Employer.LogoUrls == nil {
+		return ""
+	}
+
+	return (*vacancy.Employer.LogoUrls).Original
+}

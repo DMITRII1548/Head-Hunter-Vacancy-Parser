@@ -34,4 +34,9 @@ type Vacancy struct {
 	Profession []struct {
 		Value string `json:"name"`
 	} `json:"professional_roles"`
+	Employer struct {
+		LogoUrls *struct {
+			Original string `json:"original"`
+		} `json:"logo_urls"`
+	} `json:"employer"`
 }
